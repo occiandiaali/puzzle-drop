@@ -7,13 +7,13 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
     />
-    <title>PuzzleDrop – Turn Any Photo Into a Jigsaw</title>
+    <title>QuickPhotoPuzzle – Turn Any Photo Into a Jigsaw</title>
     <link
       href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800&display=swap"
       rel="stylesheet"
     />
     <style>
-      :root {
+      /* :root {
         --bg: #fdf6ec;
         --surface: #fff9f2;
         --accent1: #ff6b35;
@@ -21,6 +21,30 @@
         --accent3: #06d6a0;
         --accent4: #118ab2;
         --accent5: #ef476f;
+        --text: #2d2d2d;
+        --muted: #8a7f76;
+        --border: #e8ddd3;
+        --shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
+        --radius: 18px;
+        --ctrl-bg: #f5f0eb;
+        --upload-bg: #fff;
+        --upload-hover: #fff8f4;
+        --panel-bg: #fff;
+        --checker1: #f0ebe4;
+        --checker2: #e8e2da;
+        --tray-c1: #f8f3ee;
+        --tray-c2: #f0ebe4;
+      } */
+      :root {
+        --bg: #fdf6ec;
+        --surface: #fff9f2;
+        --accent1: #ff3589;
+        --accent2: #ffd166;
+        /* --accent3: #06d6a0; */
+        --accent3: #08a178;
+        --accent4: #118ab2;
+        --accent5: #ef476f;
+        --accent6: #9e530d;
         --text: #2d2d2d;
         --muted: #8a7f76;
         --border: #e8ddd3;
@@ -95,8 +119,11 @@
         color: var(--accent1);
         letter-spacing: 0.5px;
       }
+      #logo-puzzle-span {
+        color: var(--accent3);
+      }
       .nav-logo span {
-        color: var(--accent4);
+        color: var(--accent6);
       }
       .nav-links {
         display: flex;
@@ -430,8 +457,11 @@
         background: var(--accent1);
         color: #fff;
         border-radius: 50px;
+        margin-bottom: -1.5px;
+        align-content: center;
         box-shadow: 0 2px 8px rgba(255, 107, 53, 0.3);
       }
+
       .diff-btns {
         display: flex;
         gap: 8px;
@@ -1223,8 +1253,13 @@
         .nav-logo {
           font-size: medium;
         }
-        .logo-icon {
+        .logo-icon,
+        .dark-toggle-icon {
           display: none;
+        }
+        #personalities-link {
+          font-size: small;
+          margin-left: 4px;
         }
       }
     </style>
@@ -1233,16 +1268,23 @@
     <!-- NAV -->
     <nav>
       <div class="nav-logo">
-        Puzzle<span>Drop</span> <span class="logo-icon">🧩</span>
+        Quick<span>Photo</span><span id="logo-puzzle-span">Puzzle</span>
       </div>
       <div class="nav-links">
         <a onclick="openModal('about')" class="aboutpriv">About</a>
         <a onclick="openModal('privacy')" class="aboutpriv">Privacy</a>
+        <!-- <a
+          onclick="openPersonalities()"
+          id="personalities-link"
+          style="color: var(--accent6); font-weight: 800"
+          ><span class="logo-icon">⭐</span> Personalities</a
+        > -->
         <a
           onclick="openPersonalities()"
           id="personalities-link"
-          style="color: var(--accent2); font-weight: 800"
-          ><span class="logo-icon">⭐</span> Personalities</a
+          style="color: var(--accent6); font-weight: 800"
+        >
+          Personalities</a
         >
         <button
           id="quit-btn"
@@ -1327,14 +1369,16 @@
                 value="rect"
                 checked
               />
-              <label for="shape-rect">⬜ Rect</label>
+              <!-- <label for="shape-rect">⬜ Rect</label> -->
+              <label for="shape-rect">⬜</label>
               <input
                 type="radio"
                 name="shape"
                 id="shape-irreg"
                 value="irregular"
               />
-              <label for="shape-irreg">🧩 Jigsaw</label>
+              <!-- <label for="shape-irreg">🧩 Jigsaw</label> -->
+              <label for="shape-irreg">🧩</label>
             </div>
           </div>
           <div class="ctrl-group">
@@ -1347,9 +1391,7 @@
             </div>
           </div>
         </div>
-        <button class="start-btn" id="start-btn" disabled>
-          🧩 Start Puzzle!
-        </button>
+        <button class="start-btn" id="start-btn" disabled>Start Puzzle!</button>
       </div>
 
       <div class="ads-row">
@@ -1458,7 +1500,7 @@
             ▶ Keep Playing
           </button>
           <button class="btn-quit-confirm" onclick="confirmQuit()">
-            ✕ Quit Game
+            ✕ Quit
           </button>
         </div>
       </div>
@@ -1592,7 +1634,7 @@
           are never uploaded to any server.
         </p>
         <p style="color: var(--muted); font-size: 0.82rem">
-          © 2025 PuzzleDrop. Made with ❤️ for puzzle lovers.
+          © 2026 QuickPhotoPuzzle. Made with ❤️ for puzzle lovers.
         </p>
       </div>
     </div>
@@ -1634,7 +1676,7 @@
         <p>
           <strong>Contact</strong><br />For privacy enquiries, please contact:
           <a href="mailto:privacy@puzzledrop.app" style="color: var(--accent4)"
-            >privacy@puzzledrop.app</a
+            >privacy@quickphotopuzzle.online</a
           >
         </p>
       </div>
@@ -1643,7 +1685,7 @@
     <!-- FOOTER -->
     <footer>
       <p>
-        © 2025 PuzzleDrop &nbsp;·&nbsp;
+        © 2026 QuickPhotoPuzzle &nbsp;·&nbsp;
         <a onclick="openModal('about')">About</a> &nbsp;·&nbsp;
         <a onclick="openModal('privacy')">Privacy Policy</a>
       </p>
@@ -2700,7 +2742,7 @@
         const banner = document.getElementById("pers-win-banner");
         banner.classList.add("show");
         document.getElementById("pers-win-text").textContent =
-          `You identified ${document.getElementById("pers-name").textContent} in ${fmtTime(persSeconds)}!`;
+          `You solved ${document.getElementById("pers-name").textContent} in ${fmtTime(persSeconds)}!`;
         // Reveal the Wikipedia link
         document.getElementById("pers-wiki-link").classList.add("show");
         launchConfetti();
