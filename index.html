@@ -7,7 +7,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
     />
-    <title>QuickPhotoPuzzle – Turn Any Photo Into a Jigsaw</title>
+    <title>QuicPicPuzzle – Turn Any Photo Into a Jigsaw</title>
     <link
       href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800&display=swap"
       rel="stylesheet"
@@ -1193,6 +1193,9 @@
         .pers-puzzle-layout {
           grid-template-columns: 1fr;
         }
+        #celebstar-icon {
+          display: none;
+        }
       }
 
       #pers-puzzle-board {
@@ -1246,6 +1249,19 @@
         margin: 0;
       }
 
+      .wide-ad-wrap {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 98px;
+        font-size: small;
+        padding: 1.5rem;
+        border: solid 1px rgb(240, 236, 236);
+        border-radius: 6px;
+      }
+
       @media (max-width: 640px) {
         .aboutpriv {
           display: none;
@@ -1268,7 +1284,7 @@
     <!-- NAV -->
     <nav>
       <div class="nav-logo">
-        Quick<span>Photo</span><span id="logo-puzzle-span">Puzzle</span>
+        Quic<span>Pic</span><span id="logo-puzzle-span">Puzzle</span>
       </div>
       <div class="nav-links">
         <a onclick="openModal('about')" class="aboutpriv">About</a>
@@ -1282,7 +1298,7 @@
         <a
           onclick="openPersonalities()"
           id="personalities-link"
-          style="color: var(--accent6); font-weight: 800"
+          style="font-weight: 800"
         >
           Personalities</a
         >
@@ -1308,7 +1324,26 @@
     </nav>
 
     <!-- AD BANNER -->
-    <div class="ad-banner">ADVERTISEMENT · 728×90</div>
+    <!-- <div class="ad-banner">ADVERTISEMENT · 728×90</div> -->
+
+    <div style="margin: 6px auto" class="wide-ad-wrap">
+      <span style="margin: 6px">ADVERTISEMENT</span>
+      <img
+        src="millionaireodds-shot.png"
+        alt="Milliionaire Odds"
+        width="260px"
+        height="42px"
+      />
+      <span
+        >VISIT
+        <a
+          href="https://millionaireodds.com"
+          target="_blank"
+          style="color: #ef476f"
+          >https://millionaireodds.com</a
+        ></span
+      >
+    </div>
 
     <!-- HERO -->
     <div class="hero">
@@ -1516,10 +1551,7 @@
         <div class="pers-header">
           <button class="modal-close" onclick="closePersonalities()">✕</button>
           <h2>⭐ Personality Puzzle</h2>
-          <p>
-            Solve a puzzle featuring a famous person from Wikipedia — who will
-            it be?
-          </p>
+          <p>Solve a puzzle featuring a famous person — who will it be?</p>
         </div>
 
         <!-- Difficulty + fetch controls -->
@@ -1539,10 +1571,13 @@
 
         <!-- Loading state -->
         <div class="pers-loading" id="pers-loading">
-          <div style="font-size: 3rem">⭐</div>
+          <div style="font-size: 3rem" id="celebstar-icon">⭐</div>
           <p>
             Hit <strong>Random Celebrity</strong> to fetch a famous face and
-            start puzzling!
+            start solving!<br />
+            <span style="font-size: x-small"
+              >Data is gotten from Wikipedia</span
+            >
           </p>
         </div>
 
@@ -1609,10 +1644,10 @@
     <div class="modal-overlay" id="modal-about">
       <div class="modal-box">
         <button class="modal-close" onclick="closeModal('about')">✕</button>
-        <h2>About PuzzleDrop</h2>
+        <h2>About QuicPicPuzzle</h2>
         <p>
-          PuzzleDrop is a free, browser-based jigsaw puzzle game that lets you
-          turn any personal photo into a fully playable puzzle — no apps, no
+          QuicPicPuzzle is a free, browser-based jigsaw puzzle game that lets
+          you turn any personal photo into a fully playable puzzle — no apps, no
           installs required.
         </p>
         <p>
@@ -1634,7 +1669,7 @@
           are never uploaded to any server.
         </p>
         <p style="color: var(--muted); font-size: 0.82rem">
-          © 2026 QuickPhotoPuzzle. Made with ❤️ for puzzle lovers.
+          © 2026 QuicPicPuzzle. Made with ❤️ for puzzle lovers.
         </p>
       </div>
     </div>
@@ -1646,7 +1681,7 @@
         <h2>Privacy Policy</h2>
         <p><strong>Last updated:</strong> January 2025</p>
         <p>
-          Your privacy matters to us. This policy explains how PuzzleDrop
+          Your privacy matters to us. This policy explains how QuicPicPuzzle
           handles your data.
         </p>
         <p>
@@ -1675,8 +1710,10 @@
         </p>
         <p>
           <strong>Contact</strong><br />For privacy enquiries, please contact:
-          <a href="mailto:privacy@puzzledrop.app" style="color: var(--accent4)"
-            >privacy@quickphotopuzzle.online</a
+          <a
+            href="mailto:privacy@quicpicpuzzle.com"
+            style="color: var(--accent4)"
+            >privacy@quicpicpuzzle.com</a
           >
         </p>
       </div>
@@ -1685,7 +1722,7 @@
     <!-- FOOTER -->
     <footer>
       <p>
-        © 2026 QuickPhotoPuzzle &nbsp;·&nbsp;
+        © 2026 QuicPicPuzzle &nbsp;·&nbsp;
         <a onclick="openModal('about')">About</a> &nbsp;·&nbsp;
         <a onclick="openModal('privacy')">Privacy Policy</a>
       </p>
@@ -1694,6 +1731,14 @@
         uploaded. 🔒
       </p>
     </footer>
+
+    <!-- <script>
+      window.SITESCAPE_CONFIG = {
+        endpoint: "http://localhost:5000/collect",
+        appId: "QuicPicPuzzle", // unique ID for this site
+      };
+    </script>
+    <script src="tracker.js"></script> -->
 
     <script>
       /* ════════════════════════════════════════════════
